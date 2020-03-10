@@ -1,0 +1,112 @@
+# depslib dependency file v1.0
+1583855233 source:e:\bureau\projetthibray\v1\thibrayproject\src\tgaimage.cpp
+	<iostream>
+	<fstream>
+	<string.h>
+	<time.h>
+	<math.h>
+	"tgaimage.h"
+
+1583855279 e:\bureau\projetthibray\v1\thibrayproject\include\tgaimage.h
+	<fstream>
+
+1583855816 source:e:\bureau\projetthibray\v1\thibrayproject\src\model.cpp
+	<iostream>
+	<string>
+	<fstream>
+	<sstream>
+	<vector>
+	"model.h"
+
+1583855830 e:\bureau\projetthibray\v1\thibrayproject\include\model.h
+	<vector>
+	"geometry.h"
+
+1583856036 e:\bureau\projetthibray\v1\thibrayproject\include\geometry.h
+	<cmath>
+	<iostream>
+
+1583856055 source:e:\bureau\projetthibray\v1\thibrayproject\src\geometry.cpp
+	"geometry.h"
+
+1583864456 source:e:\bureau\projetthibray\v1\thibrayproject\main.cpp
+	<vector>
+	<cmath>
+	"tgaimage.h"
+	"model.h"
+	"geometry.h"
+
+1583873487 source:c:\users\thiba\desktop\thibrayproject\main.cpp
+	<vector>
+	<cmath>
+	"tgaimage.h"
+	"model.h"
+	"geometry.h"
+
+1583873488 c:\users\thiba\desktop\thibrayproject\include\tgaimage.h
+	<fstream>
+
+1583873488 c:\users\thiba\desktop\thibrayproject\include\model.h
+	<vector>
+	"geometry.h"
+
+1583873488 c:\users\thiba\desktop\thibrayproject\include\geometry.h
+	<cmath>
+	<iostream>
+
+1583873489 source:c:\users\thiba\desktop\thibrayproject\src\geometry.cpp
+	"geometry.h"
+
+1583873489 source:c:\users\thiba\desktop\thibrayproject\src\model.cpp
+	<iostream>
+	<string>
+	<fstream>
+	<sstream>
+	<vector>
+	"model.h"
+
+1583873489 source:c:\users\thiba\desktop\thibrayproject\src\tgaimage.cpp
+	<iostream>
+	<fstream>
+	<string.h>
+	<time.h>
+	<math.h>
+	"tgaimage.h"
+
+1583873487 source:c:\users\thiba\desktop\rdv\main.cpp
+	<vector>
+	<cmath>
+	"tgaimage.h"
+	"model.h"
+	"geometry.h"
+
+1583873488 c:\users\thiba\desktop\rdv\include\tgaimage.h
+	<fstream>
+
+1583873488 c:\users\thiba\desktop\rdv\include\model.h
+	<vector>
+	"geometry.h"
+
+1583873488 c:\users\thiba\desktop\rdv\include\geometry.h
+	<cmath>
+	<iostream>
+
+1583873489 source:c:\users\thiba\desktop\rdv\src\geometry.cpp
+	"geometry.h"
+
+1583873489 source:c:\users\thiba\desktop\rdv\src\model.cpp
+	<iostream>
+	<string>
+	<fstream>
+	<sstream>
+	<vector>
+	"model.h"
+
+1583873489 source:c:\users\thiba\desktop\rdv\src\tgaimage.cpp
+	<iostream>
+	<fstream>
+	<string.h>
+	<time.h>
+	<math.h>
+	"tgaimage.h"
+
