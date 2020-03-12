@@ -27,6 +27,12 @@ void intervertir(int *v0,int *v1)
     *v0 = -*v0;
 }
 
+int produitVectoriel(int xA, int yA, int xB, int yB,int xC,int yC)
+{
+    return (xA-xC)*(yB-yC)-(yA-yC)*(xB-xC);
+}
+
+
 void line(Vec3f *v0, Vec3f *v1,TGAImage &image, TGAColor color)
 {
 
@@ -88,6 +94,22 @@ void line(Vec3f *v0, Vec3f *v1,TGAImage &image, TGAColor color)
     }
 }
 
+bool estDansTriangle(int x0,int y0,int x1,int y1,int x2,int y2,int xM,int yM)
+{
+    if(produitVectoriel(x0,y0,x1,y1,xM,yM) < 0)
+    {
+        return false;
+    }
+    if(produitVectoriel(x1,y1,x2,y2,xM,yM) < 0)
+    {
+        return false;
+    }
+    if(produitVectoriel(x2,y2,x0,y0,xM,yM) < 0)
+    {
+        return false;
+    }
+    return true;
+}
 
 void triangle(Vec3f *v0, Vec3f *v1,Vec3f *v2,TGAImage &image, TGAColor color)
 {
@@ -100,48 +122,65 @@ void triangle(Vec3f *v0, Vec3f *v1,Vec3f *v2,TGAImage &image, TGAColor color)
     int y2 = (v2->y+1.)*height/2.;
 
 
+    int xMax = x0,xMin=x0,yMin=y0,yMax=y0;
+
+
 
     /** on va vouloir trouver les coordonnées x et y minimal et maximal des 3 sommet **/
 
-    /*** Partie abscisse inf ***/
     if(x0 > x1 )
     {
-        intervertir(&x0,&x1);
-    }
-    if(x0 > x2)
+        xMin = x1;
+    }else
     {
-        intervertir(&x0,&x2);
+        xMax = x1;
     }
 
-    /** Partie abscisse supp **/
-    if(x1 > x2)
+    if(xMin > x2)
     {
-        intervertir(&x1,&x2);
+        xMin = x2;
+    }
+    if(xMax < x2)
+    {
+        xMax = x2;
     }
 
-    /*** Partie ordo inf ***/
+
     if(y0 > y1 )
     {
-        intervertir(&y0,&y1);
-    }
-    if(y0 > y2)
+        yMin = y1;
+    }else
     {
-        intervertir(&y0,&y2);
+        yMax = y1;
     }
 
-    /** Partie ordo supp **/
-    if(y1 > y2)
+    if(yMin > y2)
     {
-        intervertir(&y1,&y2);
+        yMin = y2;
     }
-
+    if(yMax < y2)
+    {
+        yMax = y2;
+    }
 
     /*** On parcour donc la zone delimitee ***/
-    for(int y = y0; y <= y2 ; y++)
+    bool dejColor;
+    for(int y = yMin; y <= yMax ; y++)
     {
-        for(int x = x0; x <= x2 ; x++)
+        dejColor = false;
+        for(int x = xMin; x <= xMax ; x++)
         {
-            image.set(x,y,color);
+            if( estDansTriangle(x0,y0,x1,y1,x2,y2,x,y) )
+            {
+                image.set(x,y,color);
+            }
+            else
+            {
+                if(dejColor)//On a colorier et on arrive a un pixel non colorier donc on peut sauter tout les autre etape de la boucle actu
+                {
+                    break;
+                }
+            }
         }
     }
 
