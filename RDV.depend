@@ -110,3 +110,40 @@
 	<math.h>
 	"tgaimage.h"
 
+1583873487 source:c:\users\thiba\documents\github\rdv\main.cpp
+	<vector>
+	<cmath>
+	"tgaimage.h"
+	"model.h"
+	"geometry.h"
+
+1583873488 c:\users\thiba\documents\github\rdv\include\tgaimage.h
+	<fstream>
+
+1583873488 c:\users\thiba\documents\github\rdv\include\model.h
+	<vector>
+	"geometry.h"
+
+1583873488 c:\users\thiba\documents\github\rdv\include\geometry.h
+	<cmath>
+	<iostream>
+
+1583873489 source:c:\users\thiba\documents\github\rdv\src\geometry.cpp
+	"geometry.h"
+
+1583873489 source:c:\users\thiba\documents\github\rdv\src\model.cpp
+	<iostream>
+	<string>
+	<fstream>
+	<sstream>
+	<vector>
+	"model.h"
+
+1583873489 source:c:\users\thiba\documents\github\rdv\src\tgaimage.cpp
+	<iostream>
+	<fstream>
+	<string.h>
+	<time.h>
+	<math.h>
+	"tgaimage.h"
+
