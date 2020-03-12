@@ -17,8 +17,25 @@ const int height = 800;
 
 
 /**********                  Code Perso                        *************/
-void line(int x0, int x1, int y0, int y1, TGAImage &image, TGAColor color)
+
+
+void intervertir(int *v0,int *v1)
 {
+    *v0 -= *v1;
+    *v1 += *v0;
+    *v0 -= *v1;
+    *v0 = -*v0;
+}
+
+void line(Vec3f *v0, Vec3f *v1,TGAImage &image, TGAColor color)
+{
+
+    /** Ici on adapte notre maillage a notre image tout en la centrant **/
+    int x0 = (v0->x+1.)*width/2.;
+    int y0 = (v0->y+1.)*height/2.;
+    int x1 = (v1->x+1.)*width/2.;
+    int y1 = (v1->y+1.)*height/2.;
+
     bool horizontal = true;
     float e;//valeur de l'erreur
     float de;//corespond aux raport de la difference des ordo sur la diference des absi (valeur absolu)
@@ -31,25 +48,14 @@ void line(int x0, int x1, int y0, int y1, TGAImage &image, TGAColor color)
         /** Si la pente n'est pas dit horizontal (si elle vari plus verticalement que horizontalement )**/
         /** alors on inverse le repere pour simplifier le code **/
 
-        x = x0;
-        x0 = y0;
-        y0 = x;
-
-        x = y1;
-        y1 = x1;
-        x1 = x;
-
+        intervertir(&x0,&y0);
+        intervertir(&x1,&y1);
     }
 
     if(x0 > x1)// si x0 < x1 alors pour aller dans le bon sens on les inverse
     {
-        x = x0;
-        x0 = x1;
-        x1 = x;
-
-        y = y0;
-        y0 = y1;
-        y1 = y;
+        intervertir(&x0,&x1);
+        intervertir(&y0,&y1);
     }
     de = abs((float)(y1-y0)/(float)(x1-x0));
     e = 0;
@@ -81,6 +87,67 @@ void line(int x0, int x1, int y0, int y1, TGAImage &image, TGAColor color)
 
     }
 }
+
+
+void triangle(Vec3f *v0, Vec3f *v1,Vec3f *v2,TGAImage &image, TGAColor color)
+{
+    /** Ici on adapte notre maillage a notre image tout en la centrant **/
+    int x0 = (v0->x+1.)*width/2.;
+    int y0 = (v0->y+1.)*height/2.;
+    int x1 = (v1->x+1.)*width/2.;
+    int y1 = (v1->y+1.)*height/2.;
+    int x2 = (v2->x+1.)*width/2.;
+    int y2 = (v2->y+1.)*height/2.;
+
+
+
+    /** on va vouloir trouver les coordonnées x et y minimal et maximal des 3 sommet **/
+
+    /*** Partie abscisse inf ***/
+    if(x0 > x1 )
+    {
+        intervertir(&x0,&x1);
+    }
+    if(x0 > x2)
+    {
+        intervertir(&x0,&x2);
+    }
+
+    /** Partie abscisse supp **/
+    if(x1 > x2)
+    {
+        intervertir(&x1,&x2);
+    }
+
+    /*** Partie ordo inf ***/
+    if(y0 > y1 )
+    {
+        intervertir(&y0,&y1);
+    }
+    if(y0 > y2)
+    {
+        intervertir(&y0,&y2);
+    }
+
+    /** Partie ordo supp **/
+    if(y1 > y2)
+    {
+        intervertir(&y1,&y2);
+    }
+
+
+    /*** On parcour donc la zone delimitee ***/
+    for(int y = y0; y <= y2 ; y++)
+    {
+        for(int x = x0; x <= x2 ; x++)
+        {
+            image.set(x,y,color);
+        }
+    }
+
+
+
+}
 /**********                  Fin Code Perso                        *************/
 
 /** Code de Test du donner dans le sujet **/
@@ -93,17 +160,21 @@ int main(int argc, char** argv) {
     }
 
     TGAImage image(width, height, TGAImage::RGB);
-    for (int i=0; i<model->nfaces(); i++) {
+    for (int i=0; i<model->nfaces(); i++)
+    {
         vector<int> face = model->face(i);
-        for (int j=0; j<3; j++) {
+        /*for (int j=0; j<3; j++)
+        {
             Vec3f v0 = model->vert(face[j]);
             Vec3f v1 = model->vert(face[(j+1)%3]);
-            int x0 = (v0.x+1.)*width/2.;
-            int y0 = (v0.y+1.)*height/2.;
-            int x1 = (v1.x+1.)*width/2.;
-            int y1 = (v1.y+1.)*height/2.;
-            line(x0, x1, y0, y1, image, white);
-        }
+
+            line(&v0, &v1, image, white);
+        }*/
+        Vec3f v0 = model->vert(face[0]);
+        Vec3f v1 = model->vert(face[1]);
+        Vec3f v2 = model->vert(face[2]);
+
+        triangle(&v0, &v1,&v2,image,white );
     }
 
     image.flip_vertically(); // i want to have the origin at the left bottom corner of the image
