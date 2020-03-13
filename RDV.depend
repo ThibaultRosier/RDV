@@ -29,35 +29,21 @@
 1583856055 source:e:\bureau\projetthibray\v1\thibrayproject\src\geometry.cpp
 	"geometry.h"
 
-1583864456 source:e:\bureau\projetthibray\v1\thibrayproject\main.cpp
+1583866704 source:e:\bureau\projetthibray\v1\thibrayproject\main.cpp
 	<vector>
 	<cmath>
 	"tgaimage.h"
 	"model.h"
 	"geometry.h"
 
-1583873487 source:c:\users\thiba\desktop\thibrayproject\main.cpp
-	<vector>
-	<cmath>
-	"tgaimage.h"
-	"model.h"
+1583856055 source:e:\bureau\projetthibray\v2\thibrayproject\src\geometry.cpp
 	"geometry.h"
 
-1583873488 c:\users\thiba\desktop\thibrayproject\include\tgaimage.h
-	<fstream>
-
-1583873488 c:\users\thiba\desktop\thibrayproject\include\model.h
-	<vector>
-	"geometry.h"
-
-1583873488 c:\users\thiba\desktop\thibrayproject\include\geometry.h
+1583856036 e:\bureau\projetthibray\v2\thibrayproject\include\geometry.h
 	<cmath>
 	<iostream>
 
-1583873489 source:c:\users\thiba\desktop\thibrayproject\src\geometry.cpp
-	"geometry.h"
-
-1583873489 source:c:\users\thiba\desktop\thibrayproject\src\model.cpp
+1583855816 source:e:\bureau\projetthibray\v2\thibrayproject\src\model.cpp
 	<iostream>
 	<string>
 	<fstream>
@@ -65,7 +51,11 @@
 	<vector>
 	"model.h"
 
-1583873489 source:c:\users\thiba\desktop\thibrayproject\src\tgaimage.cpp
+1583855830 e:\bureau\projetthibray\v2\thibrayproject\include\model.h
+	<vector>
+	"geometry.h"
+
+1583855233 source:e:\bureau\projetthibray\v2\thibrayproject\src\tgaimage.cpp
 	<iostream>
 	<fstream>
 	<string.h>
@@ -73,28 +63,38 @@
 	<math.h>
 	"tgaimage.h"
 
-1583873487 source:c:\users\thiba\desktop\rdv\main.cpp
+1583855279 e:\bureau\projetthibray\v2\thibrayproject\include\tgaimage.h
+	<fstream>
+
+1584012123 source:e:\bureau\projetthibray\v2\thibrayproject\main.cpp
 	<vector>
 	<cmath>
 	"tgaimage.h"
 	"model.h"
 	"geometry.h"
 
-1583873488 c:\users\thiba\desktop\rdv\include\tgaimage.h
+1584113406 source:e:\bureau\projetthibray\v4\thibrayproject\main.cpp
+	<vector>
+	<cmath>
+	"PpmImage.h"
+	"model.h"
+	"geometry.h"
+
+1583855279 e:\bureau\projetthibray\v4\thibrayproject\include\tgaimage.h
 	<fstream>
 
-1583873488 c:\users\thiba\desktop\rdv\include\model.h
+1583855830 e:\bureau\projetthibray\v4\thibrayproject\include\model.h
 	<vector>
 	"geometry.h"
 
-1583873488 c:\users\thiba\desktop\rdv\include\geometry.h
+1583856036 e:\bureau\projetthibray\v4\thibrayproject\include\geometry.h
 	<cmath>
 	<iostream>
 
-1583873489 source:c:\users\thiba\desktop\rdv\src\geometry.cpp
+1583856055 source:e:\bureau\projetthibray\v4\thibrayproject\src\geometry.cpp
 	"geometry.h"
 
-1583873489 source:c:\users\thiba\desktop\rdv\src\model.cpp
+1583855816 source:e:\bureau\projetthibray\v4\thibrayproject\src\model.cpp
 	<iostream>
 	<string>
 	<fstream>
@@ -102,7 +102,7 @@
 	<vector>
 	"model.h"
 
-1583873489 source:c:\users\thiba\desktop\rdv\src\tgaimage.cpp
+1583855233 source:e:\bureau\projetthibray\v4\thibrayproject\src\tgaimage.cpp
 	<iostream>
 	<fstream>
 	<string.h>
@@ -110,28 +110,49 @@
 	<math.h>
 	"tgaimage.h"
 
-1584025947 source:c:\users\thiba\documents\github\rdv\main.cpp
+1584110692 source:e:\bureau\projetthibray\v4\thibrayproject\src\pixel.cpp
+	"Pixel.h"
+
+1584110627 e:\bureau\projetthibray\v4\thibrayproject\include\pixel.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<vector>
+
+1584114035 source:e:\bureau\projetthibray\v4\thibrayproject\src\ppmimage.cpp
+	"PpmImage.h"
+
+1584112589 e:\bureau\projetthibray\v4\thibrayproject\include\ppmimage.h
+	"Pixel.h"
+
+1584133599 source:c:\users\thiba\documents\github\rdv\main.cpp
 	<vector>
 	<cmath>
-	"tgaimage.h"
+	"PpmImage.h"
 	"model.h"
 	"geometry.h"
 
-1583873488 c:\users\thiba\documents\github\rdv\include\tgaimage.h
-	<fstream>
+1584133600 c:\users\thiba\documents\github\rdv\include\ppmimage.h
+	"Pixel.h"
 
-1583873488 c:\users\thiba\documents\github\rdv\include\model.h
+1584133600 c:\users\thiba\documents\github\rdv\include\pixel.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<vector>
+
+1584133600 c:\users\thiba\documents\github\rdv\include\model.h
 	<vector>
 	"geometry.h"
 
-1583873488 c:\users\thiba\documents\github\rdv\include\geometry.h
+1584133600 c:\users\thiba\documents\github\rdv\include\geometry.h
 	<cmath>
 	<iostream>
 
-1583873489 source:c:\users\thiba\documents\github\rdv\src\geometry.cpp
+1584133601 source:c:\users\thiba\documents\github\rdv\src\geometry.cpp
 	"geometry.h"
 
-1583873489 source:c:\users\thiba\documents\github\rdv\src\model.cpp
+1584133601 source:c:\users\thiba\documents\github\rdv\src\model.cpp
 	<iostream>
 	<string>
 	<fstream>
@@ -139,11 +160,9 @@
 	<vector>
 	"model.h"
 
-1583873489 source:c:\users\thiba\documents\github\rdv\src\tgaimage.cpp
-	<iostream>
-	<fstream>
-	<string.h>
-	<time.h>
-	<math.h>
-	"tgaimage.h"
+1584133601 source:c:\users\thiba\documents\github\rdv\src\pixel.cpp
+	"Pixel.h"
+
+1584133601 source:c:\users\thiba\documents\github\rdv\src\ppmimage.cpp
+	"PpmImage.h"
 

@@ -34,13 +34,15 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Pixel.h" />
+		<Unit filename="include/PpmImage.h" />
 		<Unit filename="include/geometry.h" />
 		<Unit filename="include/model.h" />
-		<Unit filename="include/tgaimage.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Pixel.cpp" />
+		<Unit filename="src/PpmImage.cpp" />
 		<Unit filename="src/geometry.cpp" />
 		<Unit filename="src/model.cpp" />
-		<Unit filename="src/tgaimage.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

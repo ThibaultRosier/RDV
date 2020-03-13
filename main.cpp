@@ -1,6 +1,6 @@
 #include <vector>
 #include <cmath>
-#include "tgaimage.h"
+#include "PpmImage.h"
 #include "model.h"
 #include "geometry.h"
 
@@ -8,11 +8,12 @@ using namespace std;
 
 
 /** Code de Base **/
-const TGAColor white = TGAColor(255, 255, 255, 255);
-const TGAColor red   = TGAColor(255, 0,   0,   255);
+//const TGAColor white = TGAColor(255, 255, 255, 255);
+//const TGAColor red   = TGAColor(255, 0,   0,   255);
 Model *model = NULL;
 const int width  = 800;
 const int height = 800;
+const int profondeur = 800;
 /** Fin Code Base **/
 
 
@@ -33,7 +34,7 @@ int produitVectoriel(int xA, int yA, int xB, int yB,int xC,int yC)
 }
 
 
-void line(Vec3f *v0, Vec3f *v1,TGAImage &image, TGAColor color)
+void line(Vec3f *v0, Vec3f *v1,PpmImage *image)
 {
 
     /** Ici on adapte notre maillage a notre image tout en la centrant **/
@@ -71,11 +72,11 @@ void line(Vec3f *v0, Vec3f *v1,TGAImage &image, TGAColor color)
     {
         if(horizontal)
         {
-            image.set(x,y,color);
+            image->setRGB(x,y,255,255,255);
         }
         else
         {
-            image.set(y,x,color);
+            image->setRGB(y,x,255,255,255);
         }
         e += de;
         if(e > 0.5)
@@ -111,7 +112,7 @@ bool estDansTriangle(int x0,int y0,int x1,int y1,int x2,int y2,int xM,int yM)
     return true;
 }
 
-void triangle(Vec3f *v0, Vec3f *v1,Vec3f *v2,TGAImage &image, TGAColor color)
+void triangle(Vec3f *v0, Vec3f *v1,Vec3f *v2,PpmImage *image)
 {
     /** Ici on adapte notre maillage a notre image tout en la centrant **/
     int x0 = (v0->x+1.)*width/2.;
@@ -172,7 +173,8 @@ void triangle(Vec3f *v0, Vec3f *v1,Vec3f *v2,TGAImage &image, TGAColor color)
         {
             if( estDansTriangle(x0,y0,x1,y1,x2,y2,x,y) )
             {
-                image.set(x,y,color);
+                image->setRGB(x,y,255,255,255);
+                dejColor = true;
             }
             else
             {
@@ -183,22 +185,19 @@ void triangle(Vec3f *v0, Vec3f *v1,Vec3f *v2,TGAImage &image, TGAColor color)
             }
         }
     }
-
-
-
 }
-/**********                  Fin Code Perso                        *************/
 
-/** Code de Test du donner dans le sujet **/
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv)
+{
+
     if (2==argc) {
         model = new Model(argv[1]);
     } else {
         model = new Model("obj/diablo3_pose.obj");
     }
 
-    TGAImage image(width, height, TGAImage::RGB);
+    PpmImage *image =  new PpmImage(width, height);
     for (int i=0; i<model->nfaces(); i++)
     {
         vector<int> face = model->face(i);
@@ -207,17 +206,24 @@ int main(int argc, char** argv) {
             Vec3f v0 = model->vert(face[j]);
             Vec3f v1 = model->vert(face[(j+1)%3]);
 
-            line(&v0, &v1, image, white);
+            line(&v0, &v1, image);
         }*/
         Vec3f v0 = model->vert(face[0]);
         Vec3f v1 = model->vert(face[1]);
         Vec3f v2 = model->vert(face[2]);
 
-        triangle(&v0, &v1,&v2,image,white );
+        triangle(&v0, &v1,&v2,image);
     }
 
-    image.flip_vertically(); // i want to have the origin at the left bottom corner of the image
-    image.write_tga_file("output.tga");
+    //image.flip_vertically(); // i want to have the origin at the left bottom corner of the image
+    image->creeImage();
+
+    delete image;
     delete model;
     return 0;
 }
+/**********                  Fin Code Perso                        *************/
+
+/** Code de Test du donner dans le sujet **/
+
+
