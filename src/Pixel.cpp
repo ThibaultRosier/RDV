@@ -1,4 +1,3 @@
-
 #include "Pixel.h"
 
 Pixel::Pixel()
@@ -8,7 +7,7 @@ Pixel::Pixel()
     b = 0;
 }
 
-Pixel::setRGB(unsigned int r,unsigned int g, unsigned int b)
+void Pixel::setRGB(unsigned int r, unsigned int g, unsigned int b)
 {
     this->r = r;
     this->g = g;
@@ -20,12 +19,12 @@ unsigned int Pixel::getR()
     return r;
 }
 
-unsigned int Pixel:: getG()
+unsigned int Pixel::getG()
 {
     return g;
 }
 
-unsigned int Pixel:: getB()
+unsigned int Pixel::getB()
 {
     return b;
 }

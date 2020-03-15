@@ -5,9 +5,9 @@
 #include <vector>
 #include "model.h"
 
-Model::Model(const char *filename) : verts_(), faces_() {
+Model::Model(const char* filename) : verts_(), faces_() {
     std::ifstream in;
-    in.open (filename, std::ifstream::in);
+    in.open(filename, std::ifstream::in);
     if (in.fail()) return;
     std::string line;
     while (!in.eof()) {
@@ -17,9 +17,10 @@ Model::Model(const char *filename) : verts_(), faces_() {
         if (!line.compare(0, 2, "v ")) {
             iss >> trash;
             Vec3f v;
-            for (int i=0;i<3;i++) iss >> v.raw[i];
+            for (int i = 0; i < 3; i++) iss >> v.raw[i];
             verts_.push_back(v);
-        } else if (!line.compare(0, 2, "f ")) {
+        }
+        else if (!line.compare(0, 2, "f ")) {
             std::vector<int> f;
             int itrash, idx;
             iss >> trash;
@@ -30,7 +31,7 @@ Model::Model(const char *filename) : verts_(), faces_() {
             faces_.push_back(f);
         }
     }
-    std::cerr << "# v# " << verts_.size() << " f# "  << faces_.size() << std::endl;
+    std::cerr << "# v# " << verts_.size() << " f# " << faces_.size() << std::endl;
 }
 
 Model::~Model() {

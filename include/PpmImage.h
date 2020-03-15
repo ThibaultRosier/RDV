@@ -1,7 +1,7 @@
 #ifndef PPMIMAGE_H
 #define PPMIMAGE_H
 
-
+#include <limits>
 #include "Pixel.h"
 
 using namespace std;
@@ -9,21 +9,24 @@ using namespace std;
 class PpmImage
 {
 
-    private:
+private:
 
-        vector<Pixel*> lesPixels;
-        int hauteur;
-        int largeur;
 
-    public:
+    int hauteur;
+    int largeur;
 
-        PpmImage(int hauteur,int largeur);
+public:
 
-        setRGB(int x,int y,unsigned int r, unsigned int g , unsigned int b);
+    vector<int> zBuffer;
+    vector<Pixel*> lesPixels;
 
-        creeImage();
+    PpmImage(int hauteur, int largeur);
 
-        virtual ~PpmImage();
+    void setRGB(int x, int y, unsigned int r, unsigned int g, unsigned int b);
+
+    void creeImage();
+
+    virtual ~PpmImage();
 
 };
 

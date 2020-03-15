@@ -9,22 +9,22 @@
 
 class Pixel
 {
-    public:
-        Pixel();
+public:
+    Pixel();
 
-        setRGB(unsigned int r,unsigned int g, unsigned int b);
-        unsigned int getR();
-        unsigned int getG();
-        unsigned int getB();
+    void setRGB(unsigned int r, unsigned int g, unsigned int b);
+    unsigned int getR();
+    unsigned int getG();
+    unsigned int getB();
 
-        virtual ~Pixel();
+    virtual ~Pixel();
 
-    protected:
+protected:
 
-    private:
-        unsigned int r;
-        unsigned int g;
-        unsigned int b;
+private:
+    unsigned int r;
+    unsigned int g;
+    unsigned int b;
 };
 
 #endif // PIXEL_H
